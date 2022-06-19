@@ -4,7 +4,6 @@ import co.com.poli.taller.tallerapp.mapper.ProjectTaskMapper;
 import co.com.poli.taller.tallerapp.persistence.entity.ProjectStatus;
 import co.com.poli.taller.tallerapp.persistence.entity.ProjectTask;
 import co.com.poli.taller.tallerapp.persistence.repository.ProjectTaskRepository;
-import co.com.poli.taller.tallerapp.service.Interface.ProjectServiceInf;
 import co.com.poli.taller.tallerapp.service.Interface.ProjectTaskSerivceInf;
 import co.com.poli.taller.tallerapp.service.dto.ProjectTaskDto;
 import lombok.RequiredArgsConstructor;
@@ -30,10 +29,10 @@ public class ProjectTaskService implements ProjectTaskSerivceInf {
         return this.repository.save(projectTask);
     }
 
-    @Override
-    public List<ProjectTask> findAllByTaskStatus(ProjectStatus projectStatus) {
-        return repository.findAllByTaskStatus(projectStatus);
-    }
+    //@Override
+    //public List<ProjectTask> findAllByProjectStatus(ProjectStatus projectStatus) {
+     //   return repository.findAllByProjectStatus(projectStatus);
+   // }
 }
 
 

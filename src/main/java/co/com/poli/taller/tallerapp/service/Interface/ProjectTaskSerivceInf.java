@@ -11,5 +11,5 @@ public interface ProjectTaskSerivceInf {
     List<ProjectTask> findAll();
     ProjectTask save (ProjectTaskDto projectTask);
 
-    List<ProjectTask> findAllByTaskStatus(ProjectStatus projectStatus);
+    //List<ProjectTask> findAllByProjectStatus(ProjectStatus projectStatus);
 }

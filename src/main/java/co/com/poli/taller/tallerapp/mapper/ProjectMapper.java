@@ -2,9 +2,11 @@ package co.com.poli.taller.tallerapp.mapper;
 
 import co.com.poli.taller.tallerapp.persistence.entity.Project;
 import co.com.poli.taller.tallerapp.service.dto.ProjectDto;
+import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
 
+@Component
 public class ProjectMapper implements IMapper <ProjectDto, Project> {
 
     @Override

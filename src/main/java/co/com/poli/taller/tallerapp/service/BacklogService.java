@@ -21,8 +21,7 @@ public class BacklogService implements BacklogServiceInf {
     public List<Backlog> findAll() {
         return repository.findAll();
     }
-
-
+    
     public Backlog save(BacklogDto backlogDto) {
         Backlog backlog = backLogMapper.map(backlogDto);
         return repository.save(backlog);

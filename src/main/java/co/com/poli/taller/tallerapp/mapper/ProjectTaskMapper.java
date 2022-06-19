@@ -3,7 +3,9 @@ package co.com.poli.taller.tallerapp.mapper;
 import co.com.poli.taller.tallerapp.persistence.entity.ProjectStatus;
 import co.com.poli.taller.tallerapp.persistence.entity.ProjectTask;
 import co.com.poli.taller.tallerapp.service.dto.ProjectTaskDto;
+import org.springframework.stereotype.Component;
 
+@Component
 public class ProjectTaskMapper implements  IMapper <ProjectTaskDto, ProjectTask> {
 
     @Override

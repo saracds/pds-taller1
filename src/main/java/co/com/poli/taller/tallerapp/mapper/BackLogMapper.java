@@ -2,7 +2,9 @@ package co.com.poli.taller.tallerapp.mapper;
 
 import co.com.poli.taller.tallerapp.persistence.entity.Backlog;
 import co.com.poli.taller.tallerapp.service.dto.BacklogDto;
+import org.springframework.stereotype.Component;
 
+@Component
 public class BackLogMapper implements  IMapper <BacklogDto, Backlog>{
 
     @Override
