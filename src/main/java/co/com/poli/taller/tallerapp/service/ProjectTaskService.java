@@ -7,8 +7,7 @@ import org.springframework.stereotype.Service;
 @Service
 @RequiredArgsConstructor
 public class ProjectTaskService {
-
-    private final ProjectTaskRepository repository;
+   private final ProjectTaskRepository repository;
 }
 
 
