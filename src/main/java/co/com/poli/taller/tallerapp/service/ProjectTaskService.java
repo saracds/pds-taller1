@@ -31,8 +31,8 @@ public class ProjectTaskService implements ProjectTaskSerivceInf {
 
     //@Override
     //public List<ProjectTask> findAllByProjectStatus(ProjectStatus projectStatus) {
-     //   return repository.findAllByProjectStatus(projectStatus);
-   // }
+        //return repository.findAllByProjectStatus(projectStatus);
+    //}
 }
 
 
