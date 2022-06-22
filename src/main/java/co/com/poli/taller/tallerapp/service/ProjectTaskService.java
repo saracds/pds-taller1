@@ -8,6 +8,7 @@ import co.com.poli.taller.tallerapp.service.Interface.ProjectTaskSerivceInf;
 import co.com.poli.taller.tallerapp.service.dto.ProjectTaskDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -19,14 +20,15 @@ public class ProjectTaskService implements ProjectTaskSerivceInf {
     private final ProjectTaskMapper projectTaskMapper;
 
     @Override
+    @Transactional(readOnly = true)
     public List<ProjectTask> findAll() {
         return repository.findAll();
     }
 
     @Override
-    public ProjectTask save(ProjectTaskDto projectTaskDto) {
+    public void save(ProjectTaskDto projectTaskDto) {
         ProjectTask projectTask = projectTaskMapper.map(projectTaskDto);
-        return this.repository.save(projectTask);
+       repository.save(projectTask);
     }
 
     //@Override

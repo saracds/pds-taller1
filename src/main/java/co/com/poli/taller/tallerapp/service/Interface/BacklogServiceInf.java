@@ -9,6 +9,6 @@ public interface BacklogServiceInf {
 
     List<Backlog> findAll();
 
-    Backlog save(BacklogDto backlogDto);
+    void save(BacklogDto backlogDto);
 
 }

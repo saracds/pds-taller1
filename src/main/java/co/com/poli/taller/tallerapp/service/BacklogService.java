@@ -7,6 +7,7 @@ import co.com.poli.taller.tallerapp.service.Interface.BacklogServiceInf;
 import co.com.poli.taller.tallerapp.service.dto.BacklogDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -18,12 +19,14 @@ public class BacklogService implements BacklogServiceInf {
     private final BackLogMapper backLogMapper;
 
     @Override
+    @Transactional(readOnly = true)
     public List<Backlog> findAll() {
         return repository.findAll();
     }
-    
-    public Backlog save(BacklogDto backlogDto) {
+
+    @Override
+    public void save(BacklogDto backlogDto) {
         Backlog backlog = backLogMapper.map(backlogDto);
-        return repository.save(backlog);
+        repository.save(backlog);
     }
 }

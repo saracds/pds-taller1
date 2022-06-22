@@ -17,6 +17,7 @@ public class ProjectTask {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id_project")
     private long Id;
 
     @Column(name = "name")

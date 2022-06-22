@@ -1,5 +1,6 @@
 package co.com.poli.taller.tallerapp.persistence.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -31,10 +32,6 @@ public class Project {
 
     @Column(name = "end_date")
     private LocalDateTime endDate;
-
-    @OneToOne
-    @JoinColumn(name="id_backlog")
-    private Backlog backlog;
 
     @Override
     public boolean equals(Object o) {

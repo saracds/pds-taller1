@@ -1,28 +1,39 @@
 package co.com.poli.taller.tallerapp.controller;
 
-import co.com.poli.taller.tallerapp.persistence.entity.Backlog;
+import co.com.poli.taller.tallerapp.helpers.Response;
+import co.com.poli.taller.tallerapp.helpers.ResponseBuild;
 import co.com.poli.taller.tallerapp.service.BacklogService;
 import co.com.poli.taller.tallerapp.service.dto.BacklogDto;
+
+
 import lombok.RequiredArgsConstructor;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
+import javax.annotation.PostConstruct;
+import javax.validation.Valid;
 
 @RestController
-@RequestMapping("/backlog")
+@RequestMapping("/backlogs")
 @RequiredArgsConstructor
 public class BacklogController {
 
     private final BacklogService backlogService;
+    private final ResponseBuild build;
+
 
     @GetMapping
-    public List<Backlog> findAll(){
-        return backlogService.findAll();
+    public Response findAll(){
+         return build.success(backlogService.findAll());
     }
 
     @PostMapping
-    public Backlog save(@RequestBody BacklogDto backlogDto){
-        return  backlogService.save(backlogDto);
+    public Response save(@Valid @RequestBody BacklogDto backlogDto, BindingResult result){
+        if (result.hasErrors()) {
+        return build.failed(result);
+        }
+        backlogService.save(backlogDto);
+        return build.success(backlogDto);
     }
 
 }

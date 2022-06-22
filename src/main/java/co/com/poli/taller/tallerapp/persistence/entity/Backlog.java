@@ -21,7 +21,8 @@ public class Backlog {
     @Column(name = "project_identifier")
     private String projectIdentifier;
 
-    @OneToOne(mappedBy="backlog")
+    @OneToOne(cascade = {CascadeType.MERGE})
+    @JoinColumn(name="id_project")
     private Project project;
 
     @JsonManagedReference

@@ -9,6 +9,6 @@ public interface ProjectServiceInf {
 
     List<Project> findAll();
 
-    Project save (ProjectDto projectDto);
+    void save (ProjectDto projectDto);
 
 }

@@ -9,7 +9,7 @@ import java.util.List;
 public interface ProjectTaskSerivceInf {
 
     List<ProjectTask> findAll();
-    ProjectTask save (ProjectTaskDto projectTask);
+    void save (ProjectTaskDto projectTask);
 
     //List<ProjectTask> findAllByProjectStatus(ProjectStatus projectStatus);
 }
