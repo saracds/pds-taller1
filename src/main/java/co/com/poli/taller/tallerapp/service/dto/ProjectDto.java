@@ -22,8 +22,6 @@ public class ProjectDto {
 
     private LocalDateTime startDate;
 
-    private LocalDateTime endDate;
-
     private Backlog backlog;
 
 }

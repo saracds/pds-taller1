@@ -1,6 +1,5 @@
 package co.com.poli.taller.tallerapp.persistence.entity;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -16,12 +15,13 @@ public class Project {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id_project", unique = true)
     private long Id;
 
     @Column(name = "project_name")
     private String projectName;
 
-    @Column(name = "project_identifier")
+    @Column(name = "project_identifier", updatable = false, unique = true)
     private String ProjectIdentifier;
 
     @Column(name = "description")

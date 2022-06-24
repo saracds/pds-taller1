@@ -16,9 +16,10 @@ public class Backlog {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id_backlog", unique = true)
     private long Id;
 
-    @Column(name = "project_identifier")
+    @Column(name = "project_identifier", updatable = false, unique = true)
     private String projectIdentifier;
 
     @OneToOne(cascade = {CascadeType.MERGE})

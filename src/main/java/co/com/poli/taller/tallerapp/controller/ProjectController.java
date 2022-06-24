@@ -12,6 +12,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/projects")
@@ -23,17 +24,27 @@ public class ProjectController {
 
 
     @GetMapping
-    public Response findAll(){
+    public Response findAll() {
         return build.success(projectService.findAll());
     }
 
     @PostMapping
-    public Response save (@Valid  @RequestBody ProjectDto projectDto, BindingResult result){
+    public Response save(@Valid @RequestBody ProjectDto projectDto, BindingResult result) {
         if (result.hasErrors()) {
             return build.failed(result);
         }
         projectService.save(projectDto);
-        return build.success(projectDto);
+        return build.created(projectDto);
     }
+
+    @GetMapping("/{id}")
+    public Response findById(@PathVariable("id") Long id) {
+        var project = projectService.findById(id);
+        if (!project.isPresent()) {
+            return build.notFound("No se encontro el proyecto con el id " + id);
+        }
+        return build.success(project);
+    }
+
 
 }

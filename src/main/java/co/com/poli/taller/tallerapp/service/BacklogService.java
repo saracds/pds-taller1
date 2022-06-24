@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -28,5 +29,10 @@ public class BacklogService implements BacklogServiceInf {
     public void save(BacklogDto backlogDto) {
         Backlog backlog = backLogMapper.map(backlogDto);
         repository.save(backlog);
+    }
+
+    @Override
+    public Optional<Backlog> findById(long id) {
+        return repository.findById(id);
     }
 }
