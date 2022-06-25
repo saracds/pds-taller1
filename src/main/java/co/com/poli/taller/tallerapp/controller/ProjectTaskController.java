@@ -1,15 +1,17 @@
 package co.com.poli.taller.tallerapp.controller;
 
-import co.com.poli.taller.tallerapp.helpers.Response;
-import co.com.poli.taller.tallerapp.helpers.ResponseBuild;
+
 import co.com.poli.taller.tallerapp.persistence.entity.ProjectStatus;
-import co.com.poli.taller.tallerapp.persistence.entity.ProjectTask;
 import co.com.poli.taller.tallerapp.service.BacklogService;
 import co.com.poli.taller.tallerapp.service.ProjectService;
 import co.com.poli.taller.tallerapp.service.ProjectTaskService;
 import co.com.poli.taller.tallerapp.service.dto.ProjectTaskDto;
 
+import co.com.responselibrary.library_response.FormatMessage;
+import co.com.responselibrary.library_response.Response;
+import co.com.responselibrary.library_response.ResponseBuild;
 import lombok.RequiredArgsConstructor;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,13 +20,14 @@ import javax.validation.Valid;
 @RestController
 @RequestMapping("/tasks")
 @RequiredArgsConstructor
+@ComponentScan("co.com.responselibrary.*")
 public class ProjectTaskController {
 
     private final ProjectTaskService projectTaskService;
     private final ProjectService projectService;
     private final BacklogService backlogService;
     private final ResponseBuild build;
-
+    private final FormatMessage formatMessage;
     @GetMapping
     public Response findAll() {
         return build.success(projectTaskService.findAll());
@@ -38,7 +41,7 @@ public class ProjectTaskController {
     @PostMapping
     public Response save(@Valid @RequestBody ProjectTaskDto projectTaskDto, BindingResult result) {
         if (result.hasErrors()) {
-            return build.failed(result);
+            return build.failed(formatMessage.formatMessage(result));
         } else {
             var backlog = backlogService.findById(projectTaskDto.getBacklog().getId());
             if (backlog.isPresent()) {

@@ -5,45 +5,45 @@ import org.springframework.stereotype.Component;
 import static org.springframework.http.HttpStatus.*;
 
 @Component
-public class ResponseBuild {
+public class ResponseBuildA {
 
-    public Response success(){
-        return Response.builder()
+    public ResponseA success(){
+        return ResponseA.builder()
                 .code(OK.value())
                 .data(OK.value())
                 .build();
     }
 
-    public Response success(Object data){
-        return Response.builder()
+    public ResponseA success(Object data){
+        return ResponseA.builder()
                 .code(OK.value())
                 .data(data)
                 .build();
     }
 
-    public Response created(){
-        return Response.builder()
+    public ResponseA created(){
+        return ResponseA.builder()
                 .code(CREATED.value())
                 .data(CREATED.value())
                 .build();
     }
 
-    public Response created(Object data){
-        return Response.builder()
+    public ResponseA created(Object data){
+        return ResponseA.builder()
                 .code(CREATED.value())
                 .data(data)
                 .build();
     }
 
-    public Response failed(Object data){
-        return Response.builder()
+    public ResponseA failed(Object data){
+        return ResponseA.builder()
                 .code(BAD_REQUEST.ordinal())
                 .data(data)
                 .build();
     }
 
-    public Response notFound(Object data){
-        return Response.builder()
+    public ResponseA notFound(Object data){
+        return ResponseA.builder()
                 .code(NOT_FOUND.ordinal())
                 .data(data)
                 .build();
