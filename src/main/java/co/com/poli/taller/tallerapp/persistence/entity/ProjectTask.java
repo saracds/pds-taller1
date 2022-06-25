@@ -12,11 +12,12 @@ import java.util.Objects;
 @Getter
 @Setter
 @Entity
-@Table(name = "projectTask")
+@Table(name = "project_task")
 public class ProjectTask {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id_project_task", unique = true)
     private long Id;
 
     @Column(name = "name")
@@ -28,8 +29,8 @@ public class ProjectTask {
     @Column(name = "acceptance_criteria")
     private String acceptanceCriteria;
 
-    @Column(name = "status")
-    private ProjectStatus status;
+    @Column(name = "project_status")
+    private ProjectStatus projectStatus;
 
     @Column(name = "priority")
     private int priority;
@@ -43,7 +44,7 @@ public class ProjectTask {
     @Column(name = "end_date")
     private LocalDateTime endDate;
 
-    @Column(name = "project_identifier")
+    @Column(name = "project_identifier", updatable = false)
     private String ProjectIdentifier;
 
     @JsonBackReference

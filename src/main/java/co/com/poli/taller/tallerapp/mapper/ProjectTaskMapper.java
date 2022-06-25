@@ -14,11 +14,11 @@ public class ProjectTaskMapper implements  IMapper <ProjectTaskDto, ProjectTask>
         projectTask.setName(projectTaskDto.getName());
         projectTask.setSummary(projectTaskDto.getSummary());
         projectTask.setAcceptanceCriteria(projectTaskDto.getAcceptanceCriteria());
-        projectTask.setStatus(ProjectStatus.NOT_STARED);
+        projectTask.setProjectStatus(ProjectStatus.NOT_STARED);
         projectTask.setPriority(projectTaskDto.getPriority());
         projectTask.setHours(projectTaskDto.getHours());
         projectTask.setStartDate(projectTask.getStartDate());
-        projectTask.setEndDate(projectTaskDto.getEndDate());
+        projectTask.setEndDate(null);
         projectTask.setProjectIdentifier(projectTaskDto.getProjectIdentifier());
         projectTask.setBacklog(projectTaskDto.getBacklog());
         return projectTask;

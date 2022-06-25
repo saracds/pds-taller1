@@ -15,12 +15,13 @@ public class Project {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id_project", unique = true)
     private long Id;
 
     @Column(name = "project_name")
     private String projectName;
 
-    @Column(name = "project_identifier")
+    @Column(name = "project_identifier", updatable = false, unique = true)
     private String ProjectIdentifier;
 
     @Column(name = "description")
@@ -31,10 +32,6 @@ public class Project {
 
     @Column(name = "end_date")
     private LocalDateTime endDate;
-
-    @OneToOne
-    @JoinColumn(name="id_backlog")
-    private Backlog backlog;
 
     @Override
     public boolean equals(Object o) {

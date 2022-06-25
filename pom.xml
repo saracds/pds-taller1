@@ -66,6 +66,21 @@
 			<artifactId>springdoc-openapi-ui</artifactId>
 			<version>1.6.6</version>
 		</dependency>
+		<dependency>
+			<groupId>co.com.responselibrary</groupId>
+			<artifactId>co.com.responselibrary</artifactId>
+			<version>0.0.1</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.slf4j</groupId>
+					<artifactId>slf4j-log4j12</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>log4j</groupId>
+					<artifactId>log4j</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
 	</dependencies>
 
 	<build>

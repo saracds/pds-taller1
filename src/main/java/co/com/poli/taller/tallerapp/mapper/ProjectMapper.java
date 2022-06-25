@@ -17,7 +17,6 @@ public class ProjectMapper implements IMapper <ProjectDto, Project> {
         project.setDescription(projectDto.getDescription());
         project.setStartDate(LocalDateTime.now());
         project.setEndDate(null);
-        project.setBacklog(projectDto.getBacklog());
         return project;
     }
 }
