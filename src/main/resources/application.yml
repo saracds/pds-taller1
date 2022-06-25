@@ -5,6 +5,9 @@ server:
 spring:
   application:
     name: taller1
+  jackson:
+    serialization:
+      fail-on-empty-beans: false
   datasource:
     driver-class-name: org.h2.Driver
     username: sa

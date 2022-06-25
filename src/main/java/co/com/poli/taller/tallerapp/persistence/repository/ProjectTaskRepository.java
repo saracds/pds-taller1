@@ -11,7 +11,7 @@ import java.util.List;
 @Repository
 public interface ProjectTaskRepository extends JpaRepository<ProjectTask,Long> {
 
-   //List<ProjectTask> findAllByProjectStatus(ProjectStatus projectStatus);
+   // List<ProjectTask> findAllByProjectStatus(ProjectStatus projectStatus);
 
 }
 
